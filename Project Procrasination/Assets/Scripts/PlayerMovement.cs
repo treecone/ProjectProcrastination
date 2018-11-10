@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     private bool restrictLeft, restrictRight, restrictTop, restrictBottom;
     public float sizeOfRay = .1f;
 
+    //animation
+
 
     /// <summary>
     /// Update is called once per frame
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     void Update () {
         CheckCollisionsWithWall();
         Movement();
+        Animation();
     }
     /// <summary>
     /// moves player up, down, left, right, according to what key(s) are pressed
@@ -30,6 +33,30 @@ public class PlayerMovement : MonoBehaviour {
         if(Input.GetKey(k) == true && !restriction)
         {
             this.transform.Translate(v * Time.deltaTime * 2);
+            gameObject.GetComponent<Animator>().SetBool("Walk", true);
+        }
+    }
+
+    void Animation()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //Interact!
+            gameObject.GetComponent<Animator>().Play("GhostInteract");
+        }
+
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            gameObject.GetComponent<Animator>().SetBool("Walk", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
