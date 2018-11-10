@@ -135,7 +135,7 @@ public class AI : MonoBehaviour {
 
                 if(room == Rooms.BathRoom)
                 {
-                    if(GameObject.Find("3") == g)
+                    if(GameObject.Find("MedicineCabinet") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -144,7 +144,7 @@ public class AI : MonoBehaviour {
                 }
                 else if(room == Rooms.BedRoom)
                 {
-                    if(GameObject.Find("1") == g)
+                    if(GameObject.Find("BrowseMemes") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -153,7 +153,7 @@ public class AI : MonoBehaviour {
                 }
                 else if(room == Rooms.LivingRoom)
                 {
-                    if(GameObject.Find("2") == g)
+                    if(GameObject.Find("Pet") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
