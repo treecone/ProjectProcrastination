@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-
     enum Rooms
     {
         BedRoom,
@@ -34,6 +33,7 @@ public class AI : MonoBehaviour {
         nodeInRoom.Add(Rooms.DiningRoom, GameObject.Find("node5"));
         nodeInRoom.Add(Rooms.Kitchen, GameObject.Find("node6"));
         nodeInRoom.Add(Rooms.Garage, GameObject.Find("node7"));
+        gameObject.GetComponent<Animator>().SetInteger("Animation State", 1);
     }
 	
 
@@ -55,6 +55,7 @@ public class AI : MonoBehaviour {
         else if (Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f && needsToFinishDistraction)
         {
             needsToFinishDistraction = false;
+            gameObject.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
         }
         //Justin is on his way to the distraction
         else if(distraction != null && needsToFinishDistraction)
@@ -64,6 +65,7 @@ public class AI : MonoBehaviour {
         //Justin moves from distraction back to node
         else if (!needsToFinishDistraction)
         {
+            gameObject.GetComponent<Animator>().SetInteger("Animation State", 1);
             this.transform.position = Vector2.Lerp(this.transform.position, nodeInRoom[room].transform.position, .01f);
             if(Vector2.Distance(GameObject.Find("Justin").transform.position, nodeInRoom[room].transform.position) < .2f)
             {
