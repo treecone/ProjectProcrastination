@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Node : MonoBehaviour {
-
+    [SerializeField]
     private string name;
+    [SerializeField]
     private float x, y;
-    public List<string> touching;
-    private int numberTouching;
-    private bool ignore;
+    private bool partOfMain;
     private int generation; //first generation = 0
 
     public float X
@@ -23,26 +22,15 @@ public class Node : MonoBehaviour {
     {
         get { return name; }
     }
-   
-    public int NumberTouching
+    public bool PartOfMain
     {
-        get { return touching.Count; }
-    }
-    public bool Ignore
+        get { return partOfMain; }
+    }  
+
+    public Node(string name, float x, float y)
     {
-        get { return ignore; }
-        set { ignore = value; }
-    }
-    public int Generation
-    {
-        get { return generation; }
-    }
-    public Node(List<string> touching, string name, float x, float y, int generation)
-    {
-        this.touching = touching;
         this.name = name;
         this.x = x;
         this.y = y;
-        this.generation = generation;
     }
 }
