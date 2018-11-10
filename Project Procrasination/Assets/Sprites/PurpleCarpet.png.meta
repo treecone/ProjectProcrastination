@@ -97,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -107,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcc8623d660fb724f9b2b381c53a3b15
+      spriteID: 6be481ae65d297547ae3b0258860665b
       vertices: []
       indices: 
       edges: []
@@ -116,8 +116,8 @@ TextureImporter:
       name: PurpleCarpet_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 66
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -127,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a0c394a606a7d64b8c0fd3789c5eba5
+      spriteID: 478409a2bfd0da1488bcaf5a7aeebe05
       vertices: []
       indices: 
       edges: []
@@ -136,8 +136,8 @@ TextureImporter:
       name: PurpleCarpet_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 66
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -147,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 890cc86ac139b2544a953dc23f8ee05c
+      spriteID: 319092faab6d6d34682a899c4f191744
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29e8da1e14bffe644a4f57207e9b4b4b
+      spriteID: 01b770286b3eb6546bd7c38e5e667a2a
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: PurpleCarpet_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 33
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bb551a34d3afb340ba5f486c365795d
+      spriteID: 0a17baa6139d63649a7fab70c3846524
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       name: PurpleCarpet_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48c8f125635111e4f8b26a2026b294b0
+      spriteID: 22f698bdedf3bee41a59983c2a911025
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90d10024d146fe047ba151dc1a0e0d6a
+      spriteID: 7cb4f5b1bce8cca49a52c5dfb7a122ca
       vertices: []
       indices: 
       edges: []
@@ -236,7 +236,7 @@ TextureImporter:
       name: PurpleCarpet_7
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -247,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee83703c0a33dec498ad9b9277ae545e
+      spriteID: e4fc059bda2f5a945b222faf1ab4eaec
       vertices: []
       indices: 
       edges: []
@@ -256,7 +256,7 @@ TextureImporter:
       name: PurpleCarpet_8
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b871e9f8d192f48a456df37f526038
+      spriteID: 890ea60a1b757084e9ded861f3b4b14b
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d36e6d6c4fe20ce4c821c84b33acfa2e
+    spriteID: 087b1565782ebfc43a35b55c790b1080
     vertices: []
     indices: 
     edges: []

@@ -97,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -107,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aa077d74b1eb174787e3091e9a355b6
+      spriteID: f9da6620d348a6a48af05bf8d5f5a810
       vertices: []
       indices: 
       edges: []
@@ -116,8 +116,8 @@ TextureImporter:
       name: BedroomWall_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 66
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -127,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae0b71aae30a38e4599c287252f19df1
+      spriteID: 3566581ee5a52184b9e7a496402872c0
       vertices: []
       indices: 
       edges: []
@@ -136,8 +136,8 @@ TextureImporter:
       name: BedroomWall_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 66
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -147,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4005aa3b65e16874e966ef557b6e9088
+      spriteID: 92baae78a09e24745aa328bdfd8f84d1
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c043a5aef4211e45ae263cc148e5066
+      spriteID: dc823b9d2ff9fff45ba716b236cbc033
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: BedroomWall_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 33
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fff10f9125269f949a615c664320fe8a
+      spriteID: 1d22387a25b39be42b9d1f9aa905bf32
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       name: BedroomWall_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4560b1106da2d24c9be88a603a95dd4
+      spriteID: 09edba835622da644a9e8426b3b9715d
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f70e0ce58fb7a1a4799be95bd745299a
+      spriteID: 1e2b746ddb7b60b4d9486870d796f154
       vertices: []
       indices: 
       edges: []
@@ -236,7 +236,7 @@ TextureImporter:
       name: BedroomWall_7
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -247,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46333a394b9b70c418ae476c722209a5
+      spriteID: df6edc62ea4c8594ba832329ef1a6fcb
       vertices: []
       indices: 
       edges: []
@@ -256,7 +256,7 @@ TextureImporter:
       name: BedroomWall_8
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d7fee152af8394c9aca8dd2b4e15c9
+      spriteID: 4f0978f2868ce734ab965e5d6e6d3e87
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6e549030c3dfdca41908dab4c7608838
+    spriteID: ff787a190d686af4484ae87e52c20ac0
     vertices: []
     indices: 
     edges: []

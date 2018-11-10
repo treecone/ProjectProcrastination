@@ -97,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -107,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cc7fc4646d73e74fbe167a92a34b431
+      spriteID: cd11f2846f7b8d44eab22686658fd5d1
       vertices: []
       indices: 
       edges: []
@@ -116,8 +116,8 @@ TextureImporter:
       name: BlueCarpet_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 66
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -127,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56c42a744aac62e4b8efeba40fcba839
+      spriteID: 4d1bb6322c129c74a83577d0b9275571
       vertices: []
       indices: 
       edges: []
@@ -136,8 +136,8 @@ TextureImporter:
       name: BlueCarpet_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 66
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -147,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 327cd00c67f580f4686cb1b349c405d6
+      spriteID: df302a385ad440c4eb98f350a5d2bf17
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b42fa51b5126b6d478063d6d7d24121d
+      spriteID: d491e78ba4bc4bb4c9716455eb209c10
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: BlueCarpet_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 33
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb21c639fd5a725488ab4787f9b1b4db
+      spriteID: cae08989887f9d24089d59141638ee7d
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       name: BlueCarpet_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c2e2cd48efd834fb3685ea7fbccd9b
+      spriteID: d7e90195a6f50ef4e8b8f5166e3f875f
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 124a17cf15f81534e8408ecb7afa1d68
+      spriteID: 3badf8b860b4d1040b5a3077ca3e6e87
       vertices: []
       indices: 
       edges: []
@@ -236,7 +236,7 @@ TextureImporter:
       name: BlueCarpet_7
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -247,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cf311dcbcd021644981437745f1930f
+      spriteID: af049cf766263ee4da5c21f43c0566ea
       vertices: []
       indices: 
       edges: []
@@ -256,7 +256,7 @@ TextureImporter:
       name: BlueCarpet_8
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50c8c4c5a48a316499e098acdd410cb4
+      spriteID: 77aa62e4a3e42494097450677842bed1
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e63dd9452418c184f998144195b8ff54
+    spriteID: eef9883d4f15c4b47ad500afc31ea537
     vertices: []
     indices: 
     edges: []

@@ -97,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -107,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91f432ee6f395714abc07a35f78986e5
+      spriteID: 7bd56b76482dee64fb8783e6192a4044
       vertices: []
       indices: 
       edges: []
@@ -116,8 +116,8 @@ TextureImporter:
       name: BlackWhiteTiles_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 66
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -127,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d42189ef25b4d1468d089a4c8e2ab87
+      spriteID: 7fb0db77c3a11ba40a87fc8520cca7b8
       vertices: []
       indices: 
       edges: []
@@ -136,8 +136,8 @@ TextureImporter:
       name: BlackWhiteTiles_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 66
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -147,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ffd3c24374c7a4c827de05f155256f
+      spriteID: 74805542f459c664d8a2dcb3ef3b8e48
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 33
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f280ff427a3aadb4ba7e8e8fa87556b1
+      spriteID: b5034b4f15e4058468568361e5db2473
       vertices: []
       indices: 
       edges: []
@@ -176,8 +176,8 @@ TextureImporter:
       name: BlackWhiteTiles_4
       rect:
         serializedVersion: 2
-        x: 33
-        y: 33
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 830bf47a2f32fc049b4168d4b9a35b12
+      spriteID: f47054d69390bac42b400fb1b6a845ea
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       name: BlackWhiteTiles_5
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 569a50e471f7591449cad879fa634f43
+      spriteID: 3f6c1369e4b8a61418c862f2a7192648
       vertices: []
       indices: 
       edges: []
@@ -227,7 +227,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff5955f1663d9fb4d9cb7572b206c38c
+      spriteID: 5f7514b8c217bd7418beedecfaee4e6d
       vertices: []
       indices: 
       edges: []
@@ -236,7 +236,7 @@ TextureImporter:
       name: BlackWhiteTiles_7
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
         width: 32
         height: 32
@@ -247,7 +247,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4bfac81d845e64faa1fef1d44ad97d
+      spriteID: da123ab248acd454189770299acd4315
       vertices: []
       indices: 
       edges: []
@@ -256,7 +256,7 @@ TextureImporter:
       name: BlackWhiteTiles_8
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
         width: 32
         height: 32
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c4fef7e20e779a44b90042f3c0453ef
+      spriteID: 276657c7733e1d24480f772229818df7
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7270e3986e435864c84778a208f4cbb3
+    spriteID: 2ee8dd5318a3cad409be83fcd2831015
     vertices: []
     indices: 
     edges: []
