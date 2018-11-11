@@ -9,6 +9,6 @@ public class MenuScript : MonoBehaviour {
     public void StartGame ()
     {
         Debug.Log("Starting Game");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
