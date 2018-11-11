@@ -29,6 +29,7 @@ public class NewAI : MonoBehaviour
     private bool enteringGhostDistraction, exitingGhostDistraction, enactGhostDistraction;
     private bool waitForDistraction;
     private Dictionary<Rooms, int> numTimesEnteringRooms = new Dictionary<Rooms, int>();
+    private bool workingOnEssay;
     public float speed;
     public int timer;
 
@@ -60,7 +61,6 @@ public class NewAI : MonoBehaviour
     {
         ReaccessDirection();
         UpdateWhichRoomPlayerIsIn();
-
         if (mainOrder.Count != 1)
         {
             UpdateNumTimesEnteringRoom();
@@ -76,6 +76,11 @@ public class NewAI : MonoBehaviour
             {
                 MoveBetweenNodes();
             }
+        }
+        else
+        {
+            distraction = GameObject.Find("EssayTable");
+            FollowEssay();
         }
     }
     /// <summary>
@@ -100,13 +105,13 @@ public class NewAI : MonoBehaviour
     /// </summary>
     void SetDirection()
     {
-        if (this.transform.position.x > lastFramePosition.x)
+        if (this.transform.position.x < lastFramePosition.x)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
     /// <summary>
@@ -393,6 +398,24 @@ public class NewAI : MonoBehaviour
         else
         {
             this.transform.Translate(GetDirectionBetweenNodes(mainOrder[0], mainOrder[1]) * Time.deltaTime * speed);
+        }
+    }
+
+    void FollowEssay()
+    {
+        if (workingOnEssay)
+        {
+            Camera.main.GetComponent<WinScript>().percentageOfEssay += .01f;
+        }
+        if(Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f)
+        {
+            workingOnEssay = true;
+            this.GetComponent<Animator>().SetInteger("Animation State", 2);
+            GameObject.Find("EssayTable").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Computer");
+        }
+        else if(!workingOnEssay)
+        {
+            this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
         }
     }
 

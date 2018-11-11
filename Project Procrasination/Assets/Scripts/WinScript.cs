@@ -7,7 +7,7 @@ using TMPro;
 public class WinScript : MonoBehaviour {
 
     public float time;
-    public int percentageOfEssay;
+    public float percentageOfEssay;
 
 	// Use this for initialization
 	void Start () {
