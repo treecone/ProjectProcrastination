@@ -25,4 +25,19 @@ public class WinScript : MonoBehaviour {
             SceneManager.LoadScene(1);
         }
 	}
+
+    public IEnumerator timerForMethods (float timer, string method, GameObject oriObject)
+    {
+        yield return new WaitForSeconds(timer);
+        StartCoroutine("method", oriObject);
+
+    }
+
+    public IEnumerator showerOut (GameObject oriObject)
+    {
+        oriObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
+        GameObject.Find("Justin").GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+        return null;
+
+    }
 }

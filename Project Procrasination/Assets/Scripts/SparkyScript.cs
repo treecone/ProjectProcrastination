@@ -15,6 +15,6 @@ public class SparkyScript : MonoBehaviour {
 	void Update ()
     {
         time += 0.1f;
-        gameObject.transform.GetChild(0).position = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y + Mathf.Sin(time * 1));
+        gameObject.transform.GetChild(0).position = new Vector2(gameObject.transform.position.x + Mathf.Sin(time * -0.33f + 152), gameObject.transform.position.y + Mathf.Sin(time * 0.2f));
 	}
 }
