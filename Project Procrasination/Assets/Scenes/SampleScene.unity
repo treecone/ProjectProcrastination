@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 16126628}
   m_Layer: 0
   m_Name: Toliet
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 165285169}
   m_Layer: 0
-  m_Name: Distractions
+  m_Name: GhostDistractions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,16 +384,14 @@ Transform:
   - {fileID: 1812301958}
   - {fileID: 2096936945}
   - {fileID: 1858867551}
-  - {fileID: 1424232593}
   - {fileID: 1924831285}
   - {fileID: 2096247261}
   - {fileID: 1802461463}
-  - {fileID: 333210770}
   - {fileID: 457911020}
   - {fileID: 599340334}
   - {fileID: 645456083}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170894602
 GameObject:
@@ -521,7 +519,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 244100356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.768797, y: -1.9153435, z: -0.08216299}
+  m_LocalPosition: {x: -9.768797, y: -1.75, z: -0.08216299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736948097}
@@ -764,7 +762,7 @@ GameObject:
   - component: {fileID: 333210771}
   m_Layer: 0
   m_Name: Shower
-  m_TagString: distraction
+  m_TagString: KeyDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -776,11 +774,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333210769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.93, y: -3.44, z: 0}
+  m_LocalPosition: {x: 15.492306, y: -8.514799, z: -0.16290891}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 165285169}
-  m_RootOrder: 12
+  m_Father: {fileID: 1386289810}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &333210771
 MonoBehaviour:
@@ -1027,6 +1025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 450576391}
   - component: {fileID: 450576392}
+  - component: {fileID: 450576396}
   - component: {fileID: 450576394}
   - component: {fileID: 450576393}
   - component: {fileID: 450576395}
@@ -1044,7 +1043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450576390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 1.5, z: 0.07156661}
+  m_LocalPosition: {x: -2.14, y: 1.73, z: 0.07156661}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1056,7 +1055,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450576390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e26cd44a9e7847f4291fcef73ad762f2, type: 3}
   m_Name: 
@@ -1147,6 +1146,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theLastKey: 
+--- !u!114 &450576396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450576390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5c9c719e8ae284d9a33dbf8f4f28ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainOrder:
+  - {fileID: 1945028943}
+  - {fileID: 605309708}
+  - {fileID: 1945028943}
+  - {fileID: 244100356}
+  - {fileID: 1663232619}
+  - {fileID: 1499580815}
+  - {fileID: 441252448}
+  - {fileID: 1499580815}
+  - {fileID: 441252448}
+  - {fileID: 1900249107}
+  - {fileID: 441252448}
+  - {fileID: 1499580815}
+  - {fileID: 1663232619}
+  - {fileID: 244100356}
+  - {fileID: 1945028943}
+  enteringKeyDistraction: 0
+  exitingKeyDistraction: 0
+  enactKeyDistraction: 0
+  speed: 1
 --- !u!1 &457911019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1189,7 @@ GameObject:
   - component: {fileID: 457911021}
   m_Layer: 0
   m_Name: Shoes
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1175,7 +1205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &457911021
 MonoBehaviour:
@@ -1539,7 +1569,7 @@ GameObject:
   - component: {fileID: 599340335}
   m_Layer: 0
   m_Name: SportToys
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,7 +1585,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &599340335
 MonoBehaviour:
@@ -1637,7 +1667,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 605309708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.941203, y: -1.9153435, z: -0.08216299}
+  m_LocalPosition: {x: 5.941203, y: -1.75, z: -0.08216299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736948097}
@@ -1880,7 +1910,7 @@ GameObject:
   - component: {fileID: 645456084}
   m_Layer: 0
   m_Name: DogFood
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1896,7 +1926,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &645456084
 MonoBehaviour:
@@ -2541,7 +2571,7 @@ Transform:
   - {fileID: 1698151726}
   - {fileID: 1627347971}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006216274
 GameObject:
@@ -2630,7 +2660,7 @@ GameObject:
   - component: {fileID: 1053570317}
   m_Layer: 0
   m_Name: Couch
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2766,7 +2796,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200102526
 GameObject:
@@ -7747,7 +7777,7 @@ GameObject:
   - component: {fileID: 1368335471}
   m_Layer: 0
   m_Name: BrowseMemes
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7823,6 +7853,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Number: 4
+--- !u!1 &1386289809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386289810}
+  m_Layer: 0
+  m_Name: KeyDistractions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386289810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1386289809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.493509, y: 8.490143, z: 0.09359101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1424232593}
+  - {fileID: 333210770}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1395133465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7936,7 +7996,7 @@ GameObject:
   - component: {fileID: 1398644705}
   m_Layer: 0
   m_Name: Bed
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8024,7 +8084,7 @@ GameObject:
   - component: {fileID: 1424232594}
   m_Layer: 0
   m_Name: Stove
-  m_TagString: distraction
+  m_TagString: KeyDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8036,11 +8096,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424232592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.547, y: 11.33, z: 0}
+  m_LocalPosition: {x: -17.984694, y: 6.2552004, z: -0.16290891}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 165285169}
-  m_RootOrder: 8
+  m_Father: {fileID: 1386289810}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1424232594
 MonoBehaviour:
@@ -8225,7 +8285,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1499580815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.568798, y: -1.9153435, z: -0.08216299}
+  m_LocalPosition: {x: -25.568798, y: -1.75, z: -0.08216299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736948097}
@@ -8318,7 +8378,7 @@ GameObject:
   - component: {fileID: 1549561835}
   m_Layer: 0
   m_Name: MedicineCabinet
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16695,7 +16755,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1663232619}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.678799, y: -1.9153435, z: -0.08216299}
+  m_LocalPosition: {x: -18.678799, y: -1.75, z: -0.08216299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736948097}
@@ -16938,7 +16998,7 @@ GameObject:
   - component: {fileID: 1802461464}
   m_Layer: 0
   m_Name: Bike
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16954,7 +17014,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1802461464
 MonoBehaviour:
@@ -17026,7 +17086,7 @@ GameObject:
   - component: {fileID: 1812301959}
   m_Layer: 0
   m_Name: TV
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17157,7 +17217,7 @@ GameObject:
   - component: {fileID: 1858867552}
   m_Layer: 0
   m_Name: KitchenSink
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17348,7 +17408,7 @@ GameObject:
   - component: {fileID: 1924831286}
   m_Layer: 0
   m_Name: Dishwasher
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17364,7 +17424,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1924831286
 MonoBehaviour:
@@ -17446,7 +17506,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1945028943}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56879723, y: -1.9153435, z: -0.08216299}
+  m_LocalPosition: {x: -0.56879723, y: -1.75, z: -0.08216299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 736948097}
@@ -17642,7 +17702,7 @@ RectTransform:
   m_Children:
   - {fileID: 726913624}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17661,7 +17721,7 @@ GameObject:
   - component: {fileID: 2096247262}
   m_Layer: 0
   m_Name: Fridge
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17677,7 +17737,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096247262
 MonoBehaviour:
@@ -17749,7 +17809,7 @@ GameObject:
   - component: {fileID: 2096936946}
   m_Layer: 0
   m_Name: Pet
-  m_TagString: distraction
+  m_TagString: GhostDistraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

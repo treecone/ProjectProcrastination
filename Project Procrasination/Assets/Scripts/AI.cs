@@ -85,6 +85,7 @@ public class AI : MonoBehaviour {
             //Justin moves from distraction back to node
             else if (!needsToFinishDistraction)
             {
+
                 gameObject.GetComponent<Animator>().SetInteger("Animation State", 1);
                 this.transform.position = Vector2.Lerp(this.transform.position, nodeInRoom[room].transform.position, .01f);
                 if (Vector2.Distance(GameObject.Find("Justin").transform.position, nodeInRoom[room].transform.position) < .2f)
@@ -93,6 +94,87 @@ public class AI : MonoBehaviour {
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// checks to see if Justin got distracte and store that distraction in the field 'distraction'
+    /// </summary>
+    /// <returns>true if Justin got distracted and false if he hasn't</returns>
+    bool CheckIfDistracted()
+    {
+        GameObject[] possibleDistractions = GameObject.FindGameObjectsWithTag("distraction");
+        foreach (GameObject g in possibleDistractions)
+        {
+            //when E is pressed and you are in a certain Range and the player isn't aready distracted by g. Or you are at the Kitchen for the first time
+            if ((Input.GetKey(KeyCode.E) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < 1f && g != distraction) || (numTimesVisitKitchen == 1 && g.name == "Stove"))
+            {
+                if (room == Rooms.BathRoom)
+                {
+                    if (GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toliet") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.BedRoom)
+                {
+                    if (GameObject.Find("BrowseMemes") == g || GameObject.Find("Bed") == g || GameObject.Find("Table") == g || GameObject.Find("Lamp") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.LivingRoom)
+                {
+                    if (GameObject.Find("Couch") == g || GameObject.Find("TV") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.FrontDoor)
+                {
+                    if (GameObject.Find("Shoes") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.DiningRoom)
+                {
+                    if (GameObject.Find("Pet") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.Kitchen)
+                {
+                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("KitchenSink") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
+                }
+                else if (room == Rooms.Garage)
+                {
+
+                }
+            }
+            //When the g is already the distraction
+            else if (g == distraction)
+            {
+                return true;
+            }
+        }
+        distraction = null;
+        return false;
     }
 
     /// <summary>
@@ -144,81 +226,7 @@ public class AI : MonoBehaviour {
         return false;
     }
 
-    /// <summary>
-    /// checks to see if Justin got distracte and store that distraction in the field 'distraction'
-    /// </summary>
-    /// <returns>true if Justin got distracted and false if he hasn't</returns>
-    bool CheckIfDistracted()
-    {
-        GameObject[] possibleDistractions = GameObject.FindGameObjectsWithTag("distraction");
-        foreach(GameObject g in possibleDistractions)
-        {
-            //when E is pressed and you are in a certain Range and the player isn't aready distracted by g.
-            if(Input.GetKey(KeyCode.E) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < 1f && g!=distraction){
-
-                if(room == Rooms.BathRoom)
-                {
-                    if(GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toliet") == g)
-                    {
-                        distraction = g;
-                        needsToFinishDistraction = true;
-                        return true;
-                    }
-                }
-                else if(room == Rooms.BedRoom)
-                {
-                    if(GameObject.Find("BrowseMemes") == g || GameObject.Find("Bed") == g || GameObject.Find("Table") == g || GameObject.Find("Lamp") == g)
-                    {
-                        distraction = g;
-                        needsToFinishDistraction = true;
-                        return true;
-                    }
-                }
-                else if(room == Rooms.LivingRoom)
-                {
-                    if(GameObject.Find("Couch") == g || GameObject.Find("TV") == g)
-                    {
-                        distraction = g;
-                        needsToFinishDistraction = true;
-                        return true;
-                    }
-                }
-                else if(room == Rooms.FrontDoor)
-                {
-
-                }
-                else if(room == Rooms.DiningRoom)
-                {
-                    if (GameObject.Find("Pet") == g)
-                    {
-                        distraction = g;
-                        needsToFinishDistraction = true;
-                        return true;
-                    }
-                }
-                else if(room == Rooms.Kitchen)
-                {
-                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("KitchenSink") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
-                    {
-                        distraction = g;
-                        needsToFinishDistraction = true;
-                        return true;
-                    }
-                }
-                else if(room == Rooms.Garage)
-                {
-
-                }
-            }
-            //When the g is already the distraction
-            else if (g == distraction)
-            {
-                return true;
-            }
-        }   
-        distraction = null;
-        return false;
-    }
+   
 
     void UpdateRoom()
     {
@@ -271,19 +279,12 @@ public class AI : MonoBehaviour {
         //shower
         if (room == Rooms.BathRoom)
         {
-            StartCoroutine(ShowerTimer(5));
-            GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerInUse");
-            this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+            StartCoroutine(Timer(5));
         }
         //make food
         if (room == Rooms.Kitchen)
         {
             numTimesVisitKitchen++;
-            if (numTimesVisitKitchen == 1)
-            {
-                this.transform.position = new Vector2(-28.78f, 14.08f);
-                StartCoroutine(KitchenTimer(5));
-            }
         }
     }
 
@@ -292,20 +293,5 @@ public class AI : MonoBehaviour {
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
         waitForDistraction = false;
-    }
-    IEnumerator ShowerTimer(int time)
-    {
-        waitForDistraction = true;
-        yield return new WaitForSeconds(time);
-        waitForDistraction = false;
-        GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
-        this.GetComponent<SpriteRenderer>().color = new Color(255,255,255, 255);
-    }
-    IEnumerator KitchenTimer(int time)
-    {
-        waitForDistraction = true;
-        yield return new WaitForSeconds(time);
-        waitForDistraction = false;
-        this.transform.position = new Vector2(-26.55854f, 12.25f);
     }
 }
