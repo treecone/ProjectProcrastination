@@ -453,8 +453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 54.1, y: 16.305}
-  m_SizeDelta: {x: 102.660034, y: 32.61}
+  m_AnchoredPosition: {x: 71.95, y: 16.304993}
+  m_SizeDelta: {x: 138.36, y: 32.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995700127
 MonoBehaviour:
@@ -488,7 +488,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'By: Sean Lynch, Skyler Zartman, Caden Messenger.'
+  m_Text: 'Director: Skyler Zartman
+
+    Lead Programmer: Sean Lynch
+
+    Lead Artist: Caden Messenger
+
+    RIP Sparky Script 1'
 --- !u!222 &995700128
 CanvasRenderer:
   m_ObjectHideFlags: 0
