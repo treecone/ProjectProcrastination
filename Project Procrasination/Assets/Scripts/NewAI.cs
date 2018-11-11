@@ -426,7 +426,7 @@ public class NewAI : MonoBehaviour
     {
         if (workingOnEssay)
         {
-            Camera.main.GetComponent<WinScript>().percentageOfEssay += .038f;
+            Camera.main.GetComponent<WinScript>().percentageOfEssay += .039f;
         }
         if(Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f)
         {
