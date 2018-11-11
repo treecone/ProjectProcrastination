@@ -1160,19 +1160,6 @@ MonoBehaviour:
   mainOrder:
   - {fileID: 1945028943}
   - {fileID: 605309708}
-  - {fileID: 1945028943}
-  - {fileID: 244100356}
-  - {fileID: 1663232619}
-  - {fileID: 1499580815}
-  - {fileID: 441252448}
-  - {fileID: 1499580815}
-  - {fileID: 441252448}
-  - {fileID: 1900249107}
-  - {fileID: 441252448}
-  - {fileID: 1499580815}
-  - {fileID: 1663232619}
-  - {fileID: 244100356}
-  - {fileID: 1945028943}
   room: 0
   enteringKeyDistraction: 0
   exitingKeyDistraction: 0
