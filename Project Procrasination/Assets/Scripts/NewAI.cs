@@ -60,19 +60,22 @@ public class NewAI : MonoBehaviour
     {
         ReaccessDirection();
         UpdateWhichRoomPlayerIsIn();
-        UpdateNumTimesEnteringRoom();
-        
-        if (TriggeredKeyDistraction() || enteringKeyDistraction || enactKeyDistraction || exitingKeyDistraction)
+
+        if (mainOrder.Count != 1)
         {
-            FollowKeyDistraction();
-        }
-        else if (TriggeredGhostDistraction() || enteringGhostDistraction || enactGhostDistraction || exitingGhostDistraction)
-        {
-            FollowGhostDistraction();
-        }
-        else
-        {
-            MoveBetweenNodes();
+            UpdateNumTimesEnteringRoom();
+            if (TriggeredKeyDistraction() || enteringKeyDistraction || enactKeyDistraction || exitingKeyDistraction)
+            {
+                FollowKeyDistraction();
+            }
+            else if (TriggeredGhostDistraction() || enteringGhostDistraction || enactGhostDistraction || exitingGhostDistraction)
+            {
+                FollowGhostDistraction();
+            }
+            else
+            {
+                MoveBetweenNodes();
+            }
         }
     }
     /// <summary>
