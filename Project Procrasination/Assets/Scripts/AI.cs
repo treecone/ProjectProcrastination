@@ -26,9 +26,6 @@ public class AI : MonoBehaviour {
     private int updateCount = 0;
     public float speed;
 
-
-
-
     void Awake()
     {
         nodeInRoom.Add(Rooms.BathRoom, GameObject.Find("node1"));
@@ -67,8 +64,15 @@ public class AI : MonoBehaviour {
             }
             //once Justin arrives at the node, delete it from mainOrder
             else if (PassedNode(mainOrder[1], GetDirectionBetweenNodes(mainOrder[0], mainOrder[1])))
-            {
+            { 
                 mainOrder.RemoveAt(0);
+                //when Justin is in the bathroom, take a shower
+                if(room == Rooms.BathRoom)
+                {
+                    StartCoroutine(ShowerTimer(5));
+                    GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerInUse");
+                    this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+                }
             }
             //at the distraction
             else if (Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f && needsToFinishDistraction)
@@ -158,7 +162,7 @@ public class AI : MonoBehaviour {
 
                 if(room == Rooms.BathRoom)
                 {
-                    if(GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toilet") == g)
+                    if(GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toliet") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -271,5 +275,14 @@ public class AI : MonoBehaviour {
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
         waitForDistraction = false;
+    }
+    IEnumerator ShowerTimer(int time)
+    {
+        waitForDistraction = true;
+        yield return new WaitForSeconds(time);
+        waitForDistraction = false;
+        GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
+        this.GetComponent<SpriteRenderer>().color = new Color(255,255,255, 255);
+
     }
 }
