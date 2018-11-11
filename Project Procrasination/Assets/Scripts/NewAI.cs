@@ -337,6 +337,7 @@ public class NewAI : MonoBehaviour
             {
                 enteringGhostDistraction = false;
                 enactGhostDistraction = true;
+                this.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
                 StartCoroutine(GeneralTimer(5));
             }
             else if (enactGhostDistraction)
@@ -373,10 +374,12 @@ public class NewAI : MonoBehaviour
 
     IEnumerator ShowerTimer(int time)
     {
-        //add change of animations for shower
+        GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerInUse");
+        this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
-        //revert changes
+        this.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
+        GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
         waitForDistraction = false;
     }
     IEnumerator KitchenTimer(int time)
@@ -391,6 +394,7 @@ public class NewAI : MonoBehaviour
     {
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
+        this.GetComponent<Animator>().SetInteger("Animation State", 1);
         waitForDistraction = false;
     }
 }
