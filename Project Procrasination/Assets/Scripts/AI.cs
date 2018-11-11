@@ -24,6 +24,7 @@ public class AI : MonoBehaviour {
     private Vector2 lastFramePosition;
     private bool waitForDistraction;
     private int updateCount = 0;
+    private int numTimesVisitKitchen;
     public float speed;
 
     void Awake()
@@ -66,13 +67,8 @@ public class AI : MonoBehaviour {
             else if (PassedNode(mainOrder[1], GetDirectionBetweenNodes(mainOrder[0], mainOrder[1])))
             { 
                 mainOrder.RemoveAt(0);
-                //when Justin is in the bathroom, take a shower
-                if(room == Rooms.BathRoom)
-                {
-                    StartCoroutine(ShowerTimer(5));
-                    GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerInUse");
-                    this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-                }
+                CheckKeyEvent();
+                
             }
             //at the distraction
             else if (Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f && needsToFinishDistraction)
@@ -270,6 +266,27 @@ public class AI : MonoBehaviour {
         }
     }
 
+    void CheckKeyEvent()
+    {
+        //shower
+        if (room == Rooms.BathRoom)
+        {
+            StartCoroutine(ShowerTimer(5));
+            GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerInUse");
+            this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        }
+        //make food
+        if (room == Rooms.Kitchen)
+        {
+            numTimesVisitKitchen++;
+            if (numTimesVisitKitchen == 1)
+            {
+                this.transform.position = new Vector2(-28.78f, 14.08f);
+                StartCoroutine(KitchenTimer(5));
+            }
+        }
+    }
+
     IEnumerator Timer(int time)
     {
         waitForDistraction = true;
@@ -283,6 +300,12 @@ public class AI : MonoBehaviour {
         waitForDistraction = false;
         GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
         this.GetComponent<SpriteRenderer>().color = new Color(255,255,255, 255);
-
+    }
+    IEnumerator KitchenTimer(int time)
+    {
+        waitForDistraction = true;
+        yield return new WaitForSeconds(time);
+        waitForDistraction = false;
+        this.transform.position = new Vector2(-26.55854f, 12.25f);
     }
 }
