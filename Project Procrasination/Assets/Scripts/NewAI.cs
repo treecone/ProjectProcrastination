@@ -21,7 +21,7 @@ public class NewAI : MonoBehaviour
     private List<GameObject> mainOrder = new List<GameObject>();
     private GameObject distraction;
     private bool needsToFinishDistraction;
-    private Rooms room;
+    public Rooms room;
     private Dictionary<Rooms, GameObject> nodeInRoom = new Dictionary<Rooms, GameObject>();
     private Vector2 lastFramePosition;
     private int updateCount = 0;
@@ -123,7 +123,7 @@ public class NewAI : MonoBehaviour
         {
             room = Rooms.LivingRoom;
         }
-        else if (x > -24.5 && x < -14.5)
+        else if (x > -24.5 && x < -14.5 && y<4)
         {
             room = Rooms.FrontDoor;
         }
@@ -313,7 +313,7 @@ public class NewAI : MonoBehaviour
                 }
                 else if (room == Rooms.Kitchen)
                 {
-                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("KitchenSink") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
+                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
                     {
                         distraction = g;
                         enteringGhostDistraction = true;
@@ -322,7 +322,12 @@ public class NewAI : MonoBehaviour
                 }
                 else if (room == Rooms.Garage)
                 {
-
+                    if (GameObject.Find("Bike") == g)
+                    {
+                        distraction = g;
+                        enteringGhostDistraction = true;
+                        return true;
+                    }
                 }
             }
         }
@@ -384,10 +389,10 @@ public class NewAI : MonoBehaviour
     }
     IEnumerator KitchenTimer(int time)
     {
-        //add change of animations for kitchen
+        this.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
-        //revert changes
+        this.GetComponent<Animator>().SetInteger("Animation State", 1);
         waitForDistraction = false;
     }
     IEnumerator GeneralTimer(int time)

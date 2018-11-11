@@ -1173,6 +1173,7 @@ MonoBehaviour:
   - {fileID: 1663232619}
   - {fileID: 244100356}
   - {fileID: 1945028943}
+  room: 0
   enteringKeyDistraction: 0
   exitingKeyDistraction: 0
   enactKeyDistraction: 0
@@ -8096,7 +8097,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1424232592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.984694, y: 6.2552004, z: -0.16290891}
+  m_LocalPosition: {x: -17.987, y: 6.255, z: -0.16290891}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1386289810}
@@ -17229,7 +17230,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1858867550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.62, y: 11.33, z: 0}
+  m_LocalPosition: {x: -22.45, y: 11.33, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 165285169}
