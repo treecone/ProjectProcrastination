@@ -30,6 +30,7 @@ public class NewAI : MonoBehaviour
     private bool waitForDistraction;
     private Dictionary<Rooms, int> numTimesEnteringRooms = new Dictionary<Rooms, int>();
     public float speed;
+    public int timer;
 
     /// <summary>
     /// initialize dictionary with keyvalue pairs of room and node
@@ -216,6 +217,20 @@ public class NewAI : MonoBehaviour
             this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
             return true;
         }
+        else if(room == Rooms.DiningRoom && numTimesEnteringRooms[room] == 2)
+        {
+            enteringKeyDistraction = true;
+            distraction = GameObject.Find("Large Table");
+            this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
+            return true;
+        }
+        else if(room == Rooms.Garage && numTimesEnteringRooms[room] == 1)
+        {
+            enteringKeyDistraction = true;
+            distraction = GameObject.Find("Car (1)");
+            this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
+            return true;
+        }
         return false;
     }
 
@@ -229,14 +244,14 @@ public class NewAI : MonoBehaviour
                 {
                     enteringKeyDistraction = false;
                     enactKeyDistraction = true;
-                    StartCoroutine(ShowerTimer(5));
+                    StartCoroutine(ShowerTimer(timer));
                 }
-                if(distraction.name == "Stove")
+                if(distraction.name == "Stove" || distraction.name == "Large Table" || distraction.name == "Car (1)")
                 {
                     enteringKeyDistraction = false;
                     enactKeyDistraction = true;
-                    StartCoroutine(KitchenTimer(5));
-                }
+                    StartCoroutine(KeyTimer(timer));
+                }             
             }
             else if (enactKeyDistraction)
             {
@@ -343,7 +358,7 @@ public class NewAI : MonoBehaviour
                 enteringGhostDistraction = false;
                 enactGhostDistraction = true;
                 this.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
-                StartCoroutine(GeneralTimer(5));
+                StartCoroutine(GhostDistractionTimer(timer));
             }
             else if (enactGhostDistraction)
             {
@@ -387,7 +402,7 @@ public class NewAI : MonoBehaviour
         GameObject.Find("Shower").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("ShowerEmpty");
         waitForDistraction = false;
     }
-    IEnumerator KitchenTimer(int time)
+    IEnumerator KeyTimer(int time)
     {
         this.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
         waitForDistraction = true;
@@ -395,7 +410,7 @@ public class NewAI : MonoBehaviour
         this.GetComponent<Animator>().SetInteger("Animation State", 1);
         waitForDistraction = false;
     }
-    IEnumerator GeneralTimer(int time)
+    IEnumerator GhostDistractionTimer(int time)
     {
         waitForDistraction = true;
         yield return new WaitForSeconds(time);
