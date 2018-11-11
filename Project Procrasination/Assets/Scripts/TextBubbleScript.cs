@@ -27,6 +27,8 @@ public class TextBubbleScript : MonoBehaviour {
         theMessages.Add("Shower", new string[] {"Squeaky Clean!"});
         theMessages.Add("SportToys", new string[] {"My mitt's got to be in there somewhere!"});
         theMessages.Add("Dogfood", new string[] { "Sit!", "Good boy!", "Now eat up!" });
+        theMessages.Add("Shoes", new string[] {"Went hiking yesterday.", "Better clean up this mud!"});
+        theMessages.Add("Large Table", new string[] { "YUM!!!", "EGGS!!!" });
 
 
         theCount = 0;
