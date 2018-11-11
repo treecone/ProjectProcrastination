@@ -31,7 +31,8 @@ public class NewAI : MonoBehaviour
     private Dictionary<Rooms, int> numTimesEnteringRooms = new Dictionary<Rooms, int>();
     private bool workingOnEssay;
     public float speed;
-    public int timer;
+    public int keyEventTimer;
+    public int ghostEventTimer;
 
     /// <summary>
     /// initialize dictionary with keyvalue pairs of room and node
@@ -226,7 +227,7 @@ public class NewAI : MonoBehaviour
             this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
             return true;
         }
-        else if(room == Rooms.DiningRoom && numTimesEnteringRooms[room] == 2)
+        else if(room == Rooms.DiningRoom && numTimesEnteringRooms[room] == 2 && !enteringKeyDistraction && !enactKeyDistraction && !exitingKeyDistraction)
         {
             enteringKeyDistraction = true;
             distraction = GameObject.Find("Large Table");
@@ -253,13 +254,13 @@ public class NewAI : MonoBehaviour
                 {
                     enteringKeyDistraction = false;
                     enactKeyDistraction = true;
-                    StartCoroutine(ShowerTimer(timer));
+                    StartCoroutine(ShowerTimer(keyEventTimer));
                 }
                 if(distraction.name == "Stove" || distraction.name == "Large Table" || distraction.name == "Car (1)")
                 {
                     enteringKeyDistraction = false;
                     enactKeyDistraction = true;
-                    StartCoroutine(KeyTimer(timer));
+                    StartCoroutine(KeyTimer(keyEventTimer));
                 }             
             }
             else if (enactKeyDistraction)
@@ -275,6 +276,10 @@ public class NewAI : MonoBehaviour
             else if (exitingKeyDistraction && Vector2.Distance(GameObject.Find("Justin").transform.position, nodeInRoom[room].transform.position) < .05f)
             {
                 exitingKeyDistraction = false;
+                if(distraction.name == "Large Table")
+                {
+                    numTimesEnteringRooms[room]++;
+                }
             }
             else if (exitingKeyDistraction)
             {
@@ -367,7 +372,7 @@ public class NewAI : MonoBehaviour
                 enteringGhostDistraction = false;
                 enactGhostDistraction = true;
                 this.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
-                StartCoroutine(GhostDistractionTimer(timer));
+                StartCoroutine(GhostDistractionTimer(ghostEventTimer));
             }
             else if (enactGhostDistraction)
             {
@@ -405,7 +410,7 @@ public class NewAI : MonoBehaviour
     {
         if (workingOnEssay)
         {
-            Camera.main.GetComponent<WinScript>().percentageOfEssay += .01f;
+            Camera.main.GetComponent<WinScript>().percentageOfEssay += .012f;
         }
         if(Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f)
         {

@@ -1333,7 +1333,8 @@ MonoBehaviour:
   exitingKeyDistraction: 0
   enactKeyDistraction: 0
   speed: 1
-  timer: 5
+  keyEventTimer: 5
+  ghostEventTimer: 3
 --- !u!1 &457911019
 GameObject:
   m_ObjectHideFlags: 0

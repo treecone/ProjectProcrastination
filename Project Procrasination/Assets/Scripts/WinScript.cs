@@ -17,7 +17,7 @@ public class WinScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        time += 0.01f;
+        time += 0.007f;
         GameObject.Find("Canvas").transform.GetChild(0).transform.rotation = Quaternion.Euler (0,0,90-time);
         GameObject.Find("Canvas").transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Essay: " + percentageOfEssay + "%";
         if (time >= 270 || percentageOfEssay > 100)
