@@ -4,5 +4,16 @@ using UnityEngine;
 
 public class DistractionNodeScript : MonoBehaviour {
 
-    public int number;
+    [SerializeField]
+    private int Number;
+
+    public int number
+    {
+        get
+        {
+            GameObject.FindWithTag("Player").GetComponent<TextBubbleScript>().theLastKey = gameObject.transform.name;
+            GameObject.FindWithTag("Player").GetComponent<TextBubbleScript>().CallTextMessage();
+            return Number;
+        }
+    }
 }
