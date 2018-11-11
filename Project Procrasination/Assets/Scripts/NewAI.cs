@@ -61,6 +61,7 @@ public class NewAI : MonoBehaviour
         ReaccessDirection();
         UpdateWhichRoomPlayerIsIn();
         UpdateNumTimesEnteringRoom();
+        
         if (TriggeredKeyDistraction() || enteringKeyDistraction || enactKeyDistraction || exitingKeyDistraction)
         {
             FollowKeyDistraction();
