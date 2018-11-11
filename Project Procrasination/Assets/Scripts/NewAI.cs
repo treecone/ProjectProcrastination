@@ -30,6 +30,7 @@ public class NewAI : MonoBehaviour
     private bool waitForDistraction;
     private Dictionary<Rooms, int> numTimesEnteringRooms = new Dictionary<Rooms, int>();
     private bool workingOnEssay;
+    private List<GameObject> distractions = new List<GameObject>();
     public float speed;
     public int keyEventTimer;
     public int ghostEventTimer;
@@ -39,6 +40,11 @@ public class NewAI : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        GameObject[] possibleDistractions = GameObject.FindGameObjectsWithTag("GhostDistraction");
+        foreach (GameObject g in possibleDistractions)
+        {
+            distractions.Add(g);
+        }
         nodeInRoom.Add(Rooms.BathRoom, GameObject.Find("node1"));
         nodeInRoom.Add(Rooms.BedRoom, GameObject.Find("node2"));
         nodeInRoom.Add(Rooms.LivingRoom, GameObject.Find("node3"));
@@ -293,69 +299,79 @@ public class NewAI : MonoBehaviour
         GameObject[] possibleDistractions = GameObject.FindGameObjectsWithTag("GhostDistraction");
         foreach (GameObject g in possibleDistractions)
         {
-            if (Input.GetKey(KeyCode.Space) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < 1f)
+            if (distractions.Contains(g))
             {
-                if (room == Rooms.BathRoom)
+                if (Input.GetKey(KeyCode.Space) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < 1f)
                 {
-                    if (GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toliet") == g)
+                    if (room == Rooms.BathRoom)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toliet") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.BedRoom)
-                {
-                    if (GameObject.Find("BrowseMemes") == g || GameObject.Find("Bed") == g || GameObject.Find("Table") == g || GameObject.Find("Lamp") == g)
+                    else if (room == Rooms.BedRoom)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("BrowseMemes") == g || GameObject.Find("Bed") == g || GameObject.Find("Table") == g || GameObject.Find("Lamp") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.LivingRoom)
-                {
-                    if (GameObject.Find("Couch") == g || GameObject.Find("TV") == g)
+                    else if (room == Rooms.LivingRoom)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("Couch") == g || GameObject.Find("TV") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.FrontDoor)
-                {
-                    if (GameObject.Find("Shoes") == g)
+                    else if (room == Rooms.FrontDoor)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("Shoes") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.DiningRoom)
-                {
-                    if (GameObject.Find("Pet") == g)
+                    else if (room == Rooms.DiningRoom)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("Pet") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.Kitchen)
-                {
-                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
+                    else if (room == Rooms.Kitchen)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g || GameObject.Find("DogFood") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
-                }
-                else if (room == Rooms.Garage)
-                {
-                    if (GameObject.Find("Bike") == g)
+                    else if (room == Rooms.Garage)
                     {
-                        distraction = g;
-                        enteringGhostDistraction = true;
-                        return true;
+                        if (GameObject.Find("Bike") == g || GameObject.Find("SportToys") == g)
+                        {
+                            distraction = g;
+                            enteringGhostDistraction = true;
+                            distractions.Remove(g);
+                            return true;
+                        }
                     }
                 }
             }
@@ -410,7 +426,7 @@ public class NewAI : MonoBehaviour
     {
         if (workingOnEssay)
         {
-            Camera.main.GetComponent<WinScript>().percentageOfEssay += .012f;
+            Camera.main.GetComponent<WinScript>().percentageOfEssay += .038f;
         }
         if(Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f)
         {

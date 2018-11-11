@@ -9,11 +9,6 @@ public class WinScript : MonoBehaviour {
     public float time;
     public float percentageOfEssay;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update ()
     {
@@ -25,7 +20,7 @@ public class WinScript : MonoBehaviour {
         else
         {
             GameObject.Find("Canvas").transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Essay: " + (int)percentageOfEssay + "%";
-            time += 0.007f;
+            time += 0.008f;
             GameObject.Find("Canvas").transform.GetChild(0).transform.rotation = Quaternion.Euler(0, 0, 90 - time);
         }
     }
@@ -47,7 +42,7 @@ public class WinScript : MonoBehaviour {
 
     public IEnumerator EndGame()
     {
-        if (percentageOfEssay >= 100)
+        if (percentageOfEssay < 100)
         {
             GameObject.Find("Canvas").transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "YOU WIN!";
         }
