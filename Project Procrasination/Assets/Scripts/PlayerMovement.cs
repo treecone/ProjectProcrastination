@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour {
     private bool restrictLeft, restrictRight, restrictTop, restrictBottom;
     public float sizeOfRay = .1f;
 
-    //animation
-
-
     /// <summary>
     /// Update is called once per frame
     /// </summary>

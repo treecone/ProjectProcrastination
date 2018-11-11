@@ -21,7 +21,12 @@ public class AI : MonoBehaviour {
     private bool needsToFinishDistraction;
     private Rooms room;
     private Dictionary<Rooms, GameObject> nodeInRoom = new Dictionary<Rooms, GameObject>();
+    private Vector2 lastFramePosition;
+    private bool waitForDistraction;
+    private int updateCount = 0;
     public float speed;
+
+
 
 
     void Awake()
@@ -41,37 +46,53 @@ public class AI : MonoBehaviour {
     void Update() {
         UpdateRoom();
         CheckIfDistracted();
-        //move Justin when he is not distracted and he is inbetween 2 nodes.
-        if (distraction == null && (!PassedNode(mainOrder[1] , GetDirectionBetweenNodes(mainOrder[0], mainOrder[1]))))
+        if (!waitForDistraction)
         {
-            this.transform.Translate(GetDirectionBetweenNodes(mainOrder[0], mainOrder[1]) * Time.deltaTime * speed);
-        }
-        //once Justin arrives at the node, delete it from mainOrder
-        else if(PassedNode(mainOrder[1], GetDirectionBetweenNodes(mainOrder[0], mainOrder[1])))
-        {
-            mainOrder.RemoveAt(0);
-        }
-        //at the distraction
-        else if (Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f && needsToFinishDistraction)
-        {
-            needsToFinishDistraction = false;
-            gameObject.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
-        }
-        //Justin is on his way to the distraction
-        else if(distraction != null && needsToFinishDistraction)
-        {
-            this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
-        }     
-        //Justin moves from distraction back to node
-        else if (!needsToFinishDistraction)
-        {
-            gameObject.GetComponent<Animator>().SetInteger("Animation State", 1);
-            this.transform.position = Vector2.Lerp(this.transform.position, nodeInRoom[room].transform.position, .01f);
-            if(Vector2.Distance(GameObject.Find("Justin").transform.position, nodeInRoom[room].transform.position) < .2f)
+            //every five frames the direction the player faces is re-accessed
+            if (updateCount == 5)
             {
-                distraction = null;      
+                SetDirection();
+                lastFramePosition = this.transform.position;
+                updateCount = 0;
             }
-        }      
+            else
+            {
+                updateCount++;
+            }
+
+            //move Justin when he is not distracted and he is inbetween 2 nodes.
+            if (distraction == null && (!PassedNode(mainOrder[1], GetDirectionBetweenNodes(mainOrder[0], mainOrder[1]))))
+            {
+                this.transform.Translate(GetDirectionBetweenNodes(mainOrder[0], mainOrder[1]) * Time.deltaTime * speed);
+            }
+            //once Justin arrives at the node, delete it from mainOrder
+            else if (PassedNode(mainOrder[1], GetDirectionBetweenNodes(mainOrder[0], mainOrder[1])))
+            {
+                mainOrder.RemoveAt(0);
+            }
+            //at the distraction
+            else if (Vector2.Distance(GameObject.Find("Justin").transform.position, distraction.transform.position) < .2f && needsToFinishDistraction)
+            {
+                needsToFinishDistraction = false;
+                gameObject.GetComponent<Animator>().SetInteger("Animation State", distraction.GetComponent<DistractionNodeScript>().number);
+                StartCoroutine(Timer(5));
+            }
+            //Justin is on his way to the distraction
+            else if (distraction != null && needsToFinishDistraction)
+            {
+                this.transform.position = Vector2.Lerp(this.transform.position, distraction.transform.position, .01f);
+            }
+            //Justin moves from distraction back to node
+            else if (!needsToFinishDistraction)
+            {
+                gameObject.GetComponent<Animator>().SetInteger("Animation State", 1);
+                this.transform.position = Vector2.Lerp(this.transform.position, nodeInRoom[room].transform.position, .01f);
+                if (Vector2.Distance(GameObject.Find("Justin").transform.position, nodeInRoom[room].transform.position) < .2f)
+                {
+                    distraction = null;
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -133,11 +154,11 @@ public class AI : MonoBehaviour {
         foreach(GameObject g in possibleDistractions)
         {
             //when E is pressed and you are in a certain Range and the player isn't aready distracted by g.
-            if(Input.GetKey(KeyCode.E) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < .2f && g!=distraction){
+            if(Input.GetKey(KeyCode.E) == true && Vector2.Distance(GameObject.Find("Ghost").transform.position, g.transform.position) < 1f && g!=distraction){
 
                 if(room == Rooms.BathRoom)
                 {
-                    if(GameObject.Find("MedicineCabinet") == g)
+                    if(GameObject.Find("MedicineCabinet") == g || GameObject.Find("Toilet") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -146,7 +167,7 @@ public class AI : MonoBehaviour {
                 }
                 else if(room == Rooms.BedRoom)
                 {
-                    if(GameObject.Find("BrowseMemes") == g)
+                    if(GameObject.Find("BrowseMemes") == g || GameObject.Find("Bed") == g || GameObject.Find("Table") == g || GameObject.Find("Lamp") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -155,7 +176,7 @@ public class AI : MonoBehaviour {
                 }
                 else if(room == Rooms.LivingRoom)
                 {
-                    if(GameObject.Find("Pet") == g)
+                    if(GameObject.Find("Couch") == g || GameObject.Find("TV") == g)
                     {
                         distraction = g;
                         needsToFinishDistraction = true;
@@ -168,11 +189,21 @@ public class AI : MonoBehaviour {
                 }
                 else if(room == Rooms.DiningRoom)
                 {
-
+                    if (GameObject.Find("Pet") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
                 }
                 else if(room == Rooms.Kitchen)
                 {
-
+                    if (GameObject.Find("KitchenSink") == g || GameObject.Find("Stove") == g || GameObject.Find("KitchenSink") == g || GameObject.Find("Dishwasher") == g || GameObject.Find("Fridge") == g)
+                    {
+                        distraction = g;
+                        needsToFinishDistraction = true;
+                        return true;
+                    }
                 }
                 else if(room == Rooms.Garage)
                 {
@@ -213,17 +244,32 @@ public class AI : MonoBehaviour {
         {
             room = Rooms.DiningRoom;
         }
-        else if( y > 7.5 && y < 12.5)
+        else if( y > 9.5 && y < 14.5)
         {
             room = Rooms.Kitchen;
         }
-        else if(y > 16.5)
+        else if(y > 18.5)
         {
             room = Rooms.Garage;
         }
     }
 
-    
+    void SetDirection()
+    {
+        if(this.transform.position.x > lastFramePosition.x)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
 
-
+    IEnumerator Timer(int time)
+    {
+        waitForDistraction = true;
+        yield return new WaitForSeconds(time);
+        waitForDistraction = false;
+    }
 }
